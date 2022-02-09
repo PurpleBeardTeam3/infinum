@@ -1,0 +1,37 @@
+version: "3" 
+services:
+  web_infinum:
+    image: alexrogna/infinum_web:prod
+    expose:
+      - 3000
+    env_file:
+      - .env/production/database_infinum
+      - .env/production/web_infinum
+    environment:
+      - VIRTUAL_HOST=infinum.alexrogna.com
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=infinum.alexrogna.com
+    networks:
+      - proxy
+    restart: always
+
+  database_infinum:
+    image: postgres
+    env_file:
+      - .env/production/database_infinum
+    volumes:
+      - db_data_infinum:/var/lib/postgresql/data
+    networks:
+      - proxy
+    restart: always
+    
+  db-migrator_infinum:
+    image: alexrogna/infinum_web:prod
+    command: ["./wait-for", "--timeout=300", "database_infinum:5432", "--", "bin/rails", "db:create" , "db:migrate"]
+    env_file:
+      - .env/production/database_infinum
+      - .env/production/web_infinum
+volumes:
+  db_data_infinum:
+networks:
+  proxy:

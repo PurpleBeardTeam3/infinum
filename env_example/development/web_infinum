@@ -1,0 +1,2 @@
+DATABASE_HOST=database_infinum
+DISABLE_SPRING=true

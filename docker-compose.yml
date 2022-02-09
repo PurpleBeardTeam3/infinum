@@ -1,0 +1,52 @@
+version: "3"
+services:
+  web_infinum:
+    build:
+      context: .
+      args:
+        USER_ID: "${USER_ID:-1000}"
+        GROUP_ID: "${GROUP_ID:-1000}"
+    ports:
+      - "3032:3000"
+    volumes: 
+      - ./infinum:/opt/app
+      - gem_cache_infinum:/gems
+    env_file: 
+      - .env/development/database_infinum
+      - .env/development/web_infinum
+    environment: 
+      - WEBPACKER_DEV_SERVER_HOST=webpack_dev_server_infinum
+    networks:
+      - network
+  webpack_dev_server_infinum:
+    build:
+      context: .
+      args:
+        USER_ID: "${USER_ID:-1000}"
+        GROUP_ID: "${GROUP_ID:-1000}"
+    command: ./bin/webpack-dev-server
+    ports: 
+      - "3066:3066"
+    volumes: 
+      - ./infinum:/opt/app
+      - gem_cache_infinum:/gems
+    env_file: 
+      - .env/development/database_infinum
+      - .env/development/web_infinum
+    environment: 
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+    networks:
+      - network
+  database_infinum:
+    image: postgres
+    env_file: 
+      - .env/development/database_infinum
+    volumes: 
+      - db_data_infinum:/var/lib/postgresql/data
+    networks:
+      - network
+volumes: 
+  db_data_infinum:
+  gem_cache_infinum:
+networks:
+  network:

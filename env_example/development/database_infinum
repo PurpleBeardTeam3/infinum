@@ -1,0 +1,3 @@
+POSTGRES_USER=alex
+POSTGRES_PASSWORD=pswpostgres
+POSTGRES_DB=infinum_development
