@@ -2,8 +2,8 @@ version: "3"
 services:
   web_infinum:
     image: alexrogna/infinum_web:prod
-    expose:
-      - 3000
+    ports:
+      - "3032:3000"
     env_file:
       - .env/production/database_infinum
       - .env/production/web_infinum
