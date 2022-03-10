@@ -58,19 +58,7 @@ class User < ApplicationRecord
     -> { Bond.following },
     through: :inward_bonds,
     source: :user
-  def name
-    if last_name
-    "#{first_name} #{last_name}"
-    else
-    first_name
-    end
-  end
-  def profile_picture_url
-    @profile_pciture_url ||= begin
-    hash = Digest::MD5.hexdigest(email)
-    "https://www.gravatar.com/avatar/#{hash}?d=wavatar"
-    end
-  end    
+   
   def to_param
     username
   end
