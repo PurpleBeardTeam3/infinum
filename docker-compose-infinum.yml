@@ -12,7 +12,7 @@ services:
     restart: always
 
   database_infinum:
-    image: postgres
+    image: postgis/postgis
     env_file:
       - .env/production/database_infinum
     volumes:
