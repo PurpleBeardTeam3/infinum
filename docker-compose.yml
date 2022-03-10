@@ -37,7 +37,7 @@ services:
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
     networks:
       - network
-  database_postgis_infinum:
+  database_infinum:
     image: postgis/postgis
     env_file: 
       - .env/development/database_infinum

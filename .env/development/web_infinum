@@ -1,2 +1,2 @@
-DATABASE_HOST=database_postgis_infinum
+DATABASE_HOST=database_infinum
 DISABLE_SPRING=true
