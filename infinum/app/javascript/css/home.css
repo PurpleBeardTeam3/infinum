@@ -12,7 +12,7 @@ header .title{
 
 .home
 .heading{
-    @apply font-semibold text-gray-900 text-4xl pt-8;
+    @apply font-semibold text-gray-100 text-4xl pt-8;
 }
 
 .home
