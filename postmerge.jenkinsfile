@@ -58,6 +58,11 @@ pipeline {
                     docker push alexrogna/infinum_web:${version_g}
                 """
             }
+            post {
+                always {
+                     // Included post section to notify Jira
+                    jiraSendBuildInfo() 
+            }
         }
         stage('Push git tag') {
             agent { label 'docker' }
