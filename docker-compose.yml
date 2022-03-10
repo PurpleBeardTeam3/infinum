@@ -38,7 +38,7 @@ services:
     networks:
       - network
   database_infinum:
-    image: postgres
+    image: postgis/postgis
     env_file: 
       - .env/development/database_infinum
     volumes: 
