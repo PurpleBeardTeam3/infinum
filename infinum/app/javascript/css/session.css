@@ -1,25 +1,25 @@
 .body-session{
-  @apply bg-gray-200 font-sans h-screen w-screen;
+    @apply bg-dark-800 font-sans h-screen w-screen;
 }
 .body-session
 h1.title{
-  @apply font-hairline text-center text-4xl;
+    @apply font-hairline text-center text-4xl text-white;
 }
 .body-session
 .container {
-  @apply mx-auto flex h-full items-center;
+    @apply mx-auto flex h-full items-center;
 }
 .body-session
 a {
-  @apply no-underline font-bold text-sm text-blue-400;
+    @apply no-underline font-bold text-sm text-blue-400;
 }
 .body-session
 a:hover{
-  @apply text-blue-500;
+    @apply text-blue-500;
 }
 .body-session
 .alert{
-  @apply mb-4;
+    @apply mb-4;
 }
 .body-session
 .form-group{
@@ -63,7 +63,7 @@ a:hover{
 .body-session
 .error-box {
     @apply bg-red-100 border-t-4 border-red-500
-          rounded-b text-red-900 px-4 py-3 mb-3 shadow-md;
+        rounded-b text-red-900 px-4 py-3 mb-3 shadow-md;
 }
 
 .body-session
