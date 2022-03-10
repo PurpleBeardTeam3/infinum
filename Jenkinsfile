@@ -26,7 +26,7 @@ pipeline {
                 sh '/usr/local/bin/docker-compose up -d --remove-orphans'
             }
         }
-        stage('Create database') {
+        stage('setup gis') {
             steps {
                 sh '/usr/local/bin/docker-compose exec -T --user "$(id -u):$(id -g)" web_infinum bundle exec rake db:gis:setup'
             }
